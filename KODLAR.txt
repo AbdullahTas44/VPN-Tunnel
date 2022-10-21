@@ -1,0 +1,92 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using Microsoft.Win32;
+
+
+
+
+
+namespace WindowsFormsApp5
+{
+
+    
+
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+            RegistryKey registrys = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings", true);
+            registrys.SetValue("ProxyEnable", 0);
+
+            MessageBox.Show("KENDI IP NÝZE GEÇTÝNÝZ");
+            
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+
+            RegistryKey registrys = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings", true);
+            registrys.SetValue("ProxyEnable", 1);
+
+            registrys.SetValue("ProxyServer", "95.9.56.10" + ":" + "8080");
+
+            MessageBox.Show("NOTER MALATYA IP NÝZE GEÇTÝNÝZ");
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            RegistryKey registrys = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings", true);
+            registrys.SetValue("ProxyEnable", 1);
+
+            registrys.SetValue("ProxyServer", "88.247.47.70" + ":" + "8080");
+
+            MessageBox.Show("TURKLAND MALATYA IP NÝZE GEÇTÝNÝZ");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            RegistryKey registrys = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings", true);
+            registrys.SetValue("ProxyEnable", 1);
+
+            registrys.SetValue("ProxyServer", "95.9.47.234" + ":" + "808");
+
+            MessageBox.Show("AKPINAR MALATYA IP NÝZE GEÇTÝNÝZ");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            RegistryKey registrys = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings", true);
+            registrys.SetValue("ProxyEnable", 1);
+
+            registrys.SetValue("ProxyServer", "88.247.61.50" + ":" + "808");
+
+            MessageBox.Show("SABAZ KAYSERI IP NÝZE GEÇTÝNÝZ");
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            RegistryKey registrys = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings", true);
+            registrys.SetValue("ProxyEnable", 0);
+
+        }
+    }
+}
